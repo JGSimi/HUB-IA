@@ -117,8 +117,7 @@ function Dashboard() {
                                         ? ferramenta.categoria.includes(categoriaFiltrada)
                                         : ferramenta.categoria === categoriaFiltrada))
                                 .map((ferramenta) => (
-                                    <div key={ferramenta.id} 
-                                        onClick={() => handleCardClick(ferramenta.id)}
+                                    <div key={ferramenta.id}
                                         className={`bg-white rounded-xl cursor-pointer shadow-sm hover:shadow-md hover:font-bold hover:text-xl hover:bg-gradient-to-r from-blue-100 to-purple-200 transition-all duration-300 overflow-hidden ${
                                             votos[ferramenta.id] ? 'border-2 border-purple-400' : ''
                                         }`}>
@@ -140,8 +139,10 @@ function Dashboard() {
                                                     </span>
                                                 }
                                             </div>
-                                            <h3 className="text-xl font-bold text-gray-900 mb-2">{ferramenta.nome}</h3>
-                                            <p className="text-gray-600 text-sm mb-6">{ferramenta.descricao}</p>
+                                            <div className="flex flex-col gap-2" onClick={() => handleCardClick(ferramenta.id)}>
+                                                <h3 className="text-xl font-bold text-gray-900 mb-2">{ferramenta.nome}</h3>
+                                                <p className="text-gray-600 text-sm mb-6">{ferramenta.descricao}</p>
+                                            </div>
                                             <div className="flex justify-between items-center flex-row gap-4">
                                             <a
                                                 href={ferramenta.link}
