@@ -15,3 +15,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.animate-vote-up {
+    animation: up 0.5s ease-out forwards;
+}
+
+@keyframes up {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+}
+
+.animate-vote-down {
+    animation: down 0.5s ease-out forwards;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(20px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+}
