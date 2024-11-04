@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
+import Dashboard from './components/telas/Dashboard';
+import Login from './components/telas/Login';
 
 function App() {
     return (

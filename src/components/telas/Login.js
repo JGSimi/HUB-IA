@@ -1,9 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { animateGradient } from '../func/gradientanim';
 
 function Login() {
     const [isRegisterVisible, setIsRegisterVisible] = useState(false);
     const [credentials, setCredentials] = useState({ email: '', senha: '' });
-    const [registro, setRegistro] = useState({ email: '', senha: '' });
+    const [registro, setRegistro] = useState({ email: '', senha: '', nome: '' });
+    const gradientRef = useRef(null);
+
+    useEffect(() => {
+        const animate = animateGradient(gradientRef);
+        animate();
+        
+        return () => {
+            // Cleanup animation if needed
+        };
+    }, []);
 
     const handleChange = (e, type) => {
         const { name, value } = e.target;
@@ -16,37 +27,25 @@ function Login() {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        // Implementar lógica de login
+    };
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        // Implementar lógica de registro
     };
 
     const toggleRegisterForm = () => {
         setIsRegisterVisible(prev => !prev);
     };
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-    };
-
-    useEffect(() => {
-        function animateGradient() {
-            if (typeof animateGradient.angle === 'undefined') {
-                animateGradient.angle = 0;
-            }
-
-            animateGradient.angle = (animateGradient.angle + 1) % 360;
-            const gradient = `linear-gradient(${animateGradient.angle}deg, #4faffa, #400080)`;
-            document.querySelector('.animate-gradient').style.background = gradient;
-            requestAnimationFrame(animateGradient); 
-        }
-        animateGradient();
-    }, []); // Chama animateGradient apenas uma vez após o componente ser montado
-
     return (
-        <div className="flex flex-col items-center justify-center gap-10 min-h-screen bg-gradient-to-r animate-gradient">
-            <div className="w-fit max-w-md flex flex-col items-center justify-center px-10 py-5 bg-white bg-opacity-30 rounded-lg shadow-lg">
+        <div ref={gradientRef} className="flex flex-col items-center justify-center gap-10 min-h-screen">
+            <div className="w-fit max-w-md flex flex-col items-center justify-center px-10 py-5 bg-white bg-opacity-60 rounded-lg shadow-lg">
                 <h1 className="text-3xl font-extrabold text-center text-gray-800">IA.HUB</h1>
             </div>
             {!isRegisterVisible && (
-                <div className="w-full max-w-md p-8 bg-white bg-opacity-90 rounded-lg shadow-lg">
+                <div className="w-full max-w-md p-8 bg-white bg-opacity-60 rounded-lg shadow-lg">
                     <h1 className="mb-6 text-3xl font-extrabold text-center text-gray-800">Bem-vindo</h1>
                     <form onSubmit={handleLogin} className="space-y-4">
                         <input
@@ -86,7 +85,7 @@ function Login() {
                 </div>
             )}
             {isRegisterVisible && (
-                <div className="w-full max-w-md p-8 bg-white bg-opacity-90 rounded-lg shadow-lg">
+                <div className="w-full max-w-md p-8 bg-white bg-opacity-60 rounded-lg shadow-lg">
                     <h2 className="mb-6 text-3xl font-extrabold text-center text-gray-800">Crie sua Conta</h2>
                     <form onSubmit={handleRegister} className="space-y-4">
                         <input
