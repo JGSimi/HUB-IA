@@ -1,15 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/telas/Dashboard';
-import Login from './components/telas/Login';
+import IADetails from './components/telas/iadetails';
+import Header from './components/comp/header';
 
 function App() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Dashboard />} />
-            </Routes>
+            <div className="flex">
+                <Header />
+                <main className="flex-1">
+                    <Routes>
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/ia/:id" element={<IADetails />} />
+                    </Routes>
+                </main>
+            </div>
         </BrowserRouter>
     );
 }

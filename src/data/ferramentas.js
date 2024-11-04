@@ -1,154 +1,358 @@
 export const categorias = [
-    "Assistente de IA",
-    "Recursos",
-    "Criação Visual", 
+    "Chatbot",
+    "Processamento de Texto", 
+    "Análise de Dados",
+    "Imagem",
     "Áudio",
+    "Vídeo",
     "Desenvolvimento",
     "Marketing",
-    "Análise",
     "Produtividade",
     "Educação",
+    "Assistente de IA",
+    "Criação Visual",
     "Texto"
 ];
 
 export const categoriaCores = {
-    "Assistente de IA": "bg-purple-100 text-purple-800",
-    "Recursos": "bg-blue-100 text-blue-800",
-    "Criação Visual": "bg-pink-100 text-pink-800",
-    "Áudio": "bg-green-100 text-green-800",
+    "Chatbot": "bg-blue-100 text-blue-800",
+    "Processamento de Texto": "bg-green-100 text-green-800", 
+    "Análise de Dados": "bg-purple-100 text-purple-800",
+    "Imagem": "bg-red-100 text-red-800",
+    "Áudio": "bg-yellow-100 text-yellow-800",
+    "Vídeo": "bg-pink-100 text-pink-800",
     "Desenvolvimento": "bg-indigo-100 text-indigo-800",
     "Marketing": "bg-orange-100 text-orange-800",
-    "Análise": "bg-cyan-100 text-cyan-800",
-    "Produtividade": "bg-yellow-100 text-yellow-800",
-    "Educação": "bg-red-100 text-red-800",
-    "Texto": "bg-gray-100 text-gray-800"
+    "Produtividade": "bg-teal-100 text-teal-800",
+    "Educação": "bg-cyan-100 text-cyan-800",
+    "Assistente de IA": "bg-violet-100 text-violet-800",
+    "Criação Visual": "bg-rose-100 text-rose-800",
+    "Texto": "bg-emerald-100 text-emerald-800"
 };
 
 export const ferramentas = [
     {
-        id: 1,
-        nome: "ChatGPT",
-        descricao: "Assistente avançado de IA para conversas naturais",
-        link: "https://chat.openai.com",
-        categoria: ["Assistente de IA", "Desenvolvimento"]
+        id: 'chatgpt',
+        nome: 'ChatGPT',
+        descricao: 'Modelo de linguagem avançado da OpenAI',
+        categoria: ['Chatbot', 'Processamento de Texto'],
+        recursos: [
+            'Conversação natural',
+            'Geração de texto',
+            'Resposta a perguntas',
+            'Análise semântica',
+            'Tradução multilíngue'
+        ],
+        versao: '4.0',
+        status: 'Ativo',
+        link: 'https://chat.openai.com',
+        preco: 'Gratuito/Premium',
+        empresa: 'OpenAI'
     },
     {
-        id: 2,
-        nome: "Claude",
-        descricao: "Assistente de IA com recursos avançados",
-        link: "https://claude.ai", 
-        categoria: ["Assistente de IA", "Desenvolvimento"]
+        id: 'claude',
+        nome: 'Claude',
+        descricao: 'Assistente IA da Anthropic',
+        categoria: ['Chatbot', 'Análise de Dados'],
+        recursos: [
+            'Processamento de documentos',
+            'Análise de dados',
+            'Respostas detalhadas',
+            'Compreensão contextual',
+            'Programação assistida'
+        ],
+        versao: '2.0',
+        status: 'Ativo',
+        link: 'https://claude.ai',
+        preco: 'Premium',
+        empresa: 'Anthropic'
     },
     {
-        id: 3,
+        id: 'prompts',
         nome: "Biblioteca de Prompts",
         descricao: "Coleção de prompts otimizados por categoria",
         link: "https://promptbase.com",
-        categoria: "Recursos"
+        categoria: ["Processamento de Texto", "Produtividade"],
+        recursos: [
+            'Biblioteca organizada',
+            'Templates prontos',
+            'Compartilhamento',
+            'Categorização inteligente',
+            'Sistema de avaliação'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Gratuito/Premium',
+        empresa: 'PromptBase'
     },
     {
-        id: 4,
+        id: 'midjourney',
         nome: "Midjourney",
         descricao: "Gerador de imagens com múltiplos modelos de IA",
         link: "https://www.midjourney.com",
-        categoria: "Criação Visual"
+        categoria: ["Imagem", "Criação Visual"],
+        recursos: [
+            'Geração de imagens',
+            'Múltiplos estilos',
+            'Alta qualidade',
+            'Personalização avançada',
+            'Integração Discord'
+        ],
+        versao: '5.0',
+        status: 'Ativo',
+        preco: 'Premium',
+        empresa: 'Midjourney Inc'
     },
     {
-        id: 5,
+        id: 'elevenlabs',
         nome: "ElevenLabs",
         descricao: "Sintetizador de voz com vozes naturais",
         link: "https://elevenlabs.io",
-        categoria: "Áudio"
+        categoria: ["Áudio", "Produtividade"],
+        recursos: [
+            'Sintetização de voz',
+            'Vozes naturais',
+            'Personalização',
+            'Múltiplos idiomas',
+            'API disponível'
+        ],
+        versao: '3.0',
+        status: 'Ativo',
+        preco: 'Freemium',
+        empresa: 'ElevenLabs'
     },
     {
-        id: 6,
+        id: 'github-copilot',
         nome: "GitHub Copilot",
         descricao: "Copiloto inteligente para desenvolvimento",
         link: "https://github.com/features/copilot",
-        categoria: "Desenvolvimento"
+        categoria: ["Desenvolvimento", "Assistente de IA"],
+        recursos: [
+            'Assistência de código',
+            'Integração com GitHub',
+            'Personalização',
+            'Suporte multilinguagem',
+            'Documentação automática'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Premium',
+        empresa: 'GitHub/Microsoft'
     },
     {
-        id: 7,
+        id: 'copy-ai',
         nome: "Copy.ai",
         descricao: "Gerador de conteúdo otimizado para marketing",
         link: "https://www.copy.ai",
-        categoria: "Marketing"
+        categoria: ["Marketing", "Texto"],
+        recursos: [
+            'Gerador de conteúdo',
+            'Personalização',
+            'Ferramentas de marketing',
+            'Templates diversos',
+            'Análise de tom'
+        ],
+        versao: '2.0',
+        status: 'Ativo',
+        preco: 'Premium',
+        empresa: 'Copy.ai Inc'
     },
     {
-        id: 8,
+        id: 'datarobot',
         nome: "DataRobot",
-        descricao: "Análise de dados com insights automáticos", 
+        descricao: "Análise de dados com insights automáticos",
         link: "https://www.datarobot.com",
-        categoria: ["Análise", "Desenvolvimento"]
+        categoria: ["Análise de Dados", "Desenvolvimento"],
+        recursos: [
+            'Análise de dados',
+            'Insights automáticos',
+            'Personalização',
+            'Machine Learning',
+            'Visualização de dados'
+        ],
+        versao: '3.0',
+        status: 'Ativo',
+        preco: 'Enterprise',
+        empresa: 'DataRobot'
     },
     {
-        id: 9,
+        id: 'notion-ai',
         nome: "Notion AI",
         descricao: "Assistente inteligente para organização e notas",
         link: "https://www.notion.so",
-        categoria: "Produtividade"
+        categoria: ["Produtividade", "Assistente de IA"],
+        recursos: [
+            'Organização de notas',
+            'Assistência inteligente',
+            'Integração com Notion',
+            'Colaboração em tempo real',
+            'Templates inteligentes'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Freemium',
+        empresa: 'Notion Labs'
     },
     {
-        id: 10,
+        id: 'duolingo-max',
         nome: "Duolingo Max",
         descricao: "Aprendizado de idiomas com IA personalizada",
         link: "https://www.duolingo.com",
-        categoria: "Educação"
+        categoria: ["Educação", "Assistente de IA"],
+        recursos: [
+            'Aprendizado de idiomas',
+            'IA personalizada',
+            'Gamificação',
+            'Feedback em tempo real',
+            'Prática conversacional'
+        ],
+        versao: '2.0',
+        status: 'Ativo',
+        preco: 'Freemium',
+        empresa: 'Duolingo'
     },
     {
-        id: 11,
+        id: 'bard',
         nome: "Bard",
         descricao: "Assistente de IA do Google com integração ao workspace",
         link: "https://bard.google.com",
-        categoria: ["Assistente de IA", "Produtividade"]
+        categoria: ["Assistente de IA", "Produtividade"],
+        recursos: [
+            'Assistência de IA',
+            'Integração ao workspace',
+            'Personalização',
+            'Pesquisa avançada',
+            'Análise de dados'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Gratuito',
+        empresa: 'Google'
     },
     {
-        id: 12,
+        id: 'stable-diffusion',
         nome: "Stable Diffusion",
         descricao: "Gerador de imagens open source e customizável",
         link: "https://stability.ai",
-        categoria: "Criação Visual"
+        categoria: ["Imagem", "Criação Visual"],
+        recursos: [
+            'Gerador de imagens',
+            'Open source',
+            'Customização',
+            'Modelos treináveis',
+            'API disponível'
+        ],
+        versao: '2.0',
+        status: 'Ativo',
+        preco: 'Gratuito/API Premium',
+        empresa: 'Stability AI'
     },
     {
-        id: 13,
+        id: 'jasper',
         nome: "Jasper",
         descricao: "Plataforma de criação de conteúdo com IA",
         link: "https://www.jasper.ai",
-        categoria: ["Marketing", "Produtividade"]
+        categoria: ["Marketing", "Produtividade"],
+        recursos: [
+            'Criação de conteúdo',
+            'IA avançada',
+            'Personalização',
+            'SEO integrado',
+            'Templates diversos'
+        ],
+        versao: '3.0',
+        status: 'Ativo',
+        preco: 'Premium',
+        empresa: 'Jasper.ai'
     },
     {
-        id: 14,
+        id: 'synthesia',
         nome: "Synthesia",
         descricao: "Criador de vídeos com avatares de IA",
         link: "https://www.synthesia.io",
-        categoria: ["Criação Visual", "Marketing"]
+        categoria: ["Vídeo", "Marketing"],
+        recursos: [
+            'Criação de vídeos',
+            'Avatares de IA',
+            'Personalização',
+            'Múltiplos idiomas',
+            'Templates profissionais'
+        ],
+        versao: '4.0',
+        status: 'Ativo',
+        preco: 'Enterprise',
+        empresa: 'Synthesia'
     },
     {
-        id: 15,
+        id: 'perplexity',
         nome: "Perplexity AI",
         descricao: "Motor de busca com respostas geradas por IA",
         link: "https://www.perplexity.ai",
-        categoria: ["Assistente de IA", "Análise"]
-    }, 
+        categoria: ["Assistente de IA", "Análise de Dados"],
+        recursos: [
+            'Motor de busca',
+            'Respostas geradas por IA',
+            'Personalização',
+            'Citações de fontes',
+            'Interface intuitiva'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Freemium',
+        empresa: 'Perplexity AI'
+    },
     {
-        id: 16,
+        id: 'khan-academy',
         nome: "Khan Academy",
         descricao: "Plataforma de educação com IA",
         link: "https://www.khanacademy.org",
-        categoria: "Educação"
+        categoria: ["Educação", "Assistente de IA"],
+        recursos: [
+            'Plataforma de educação',
+            'IA personalizada',
+            'Exercícios adaptativos',
+            'Vídeoaulas',
+            'Feedback instantâneo'
+        ],
+        versao: '2.0',
+        status: 'Ativo',
+        preco: 'Gratuito',
+        empresa: 'Khan Academy'
     },
     {
-        id: 17,
+        id: 'quillbot',
         nome: "QuillBot",
         descricao: "Gerador de texto com IA",
         link: "https://quillbot.com",
-        categoria: "Texto"
+        categoria: ["Texto", "Produtividade"],
+        recursos: [
+            'Gerador de texto',
+            'Paráfrase inteligente',
+            'Correção gramatical',
+            'Múltiplos estilos',
+            'Integração com editores'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Freemium',
+        empresa: 'QuillBot'
     },
     {
-        id: 18,
+        id: 'cursor',
         nome: "Cursor",
         descricao: "Editor de código com IA (IDE), carrega varios modelos de IA para ajudar no desenvolvimento de codigo",
         link: "https://www.cursor.com",
-        categoria: "Desenvolvimento"
+        categoria: ["Desenvolvimento", "Assistente de IA"],
+        recursos: [
+            'Editor de código',
+            'Múltiplos modelos de IA',
+            'Autocompletar avançado',
+            'Debugging assistido',
+            'Integração com Git'
+        ],
+        versao: '1.0',
+        status: 'Ativo',
+        preco: 'Gratuito',
+        empresa: 'Cursor'
     }
 ];
