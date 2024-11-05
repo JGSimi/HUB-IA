@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logout from '../botoes/logout';
-import { animateGradient } from '../func/gradientanim';
 import { ferramentas as ferramentasIniciais, categorias, categoriaCores } from '../../data/ferramentas';
 
 function Dashboard() {
     const navigate = useNavigate();
-    const gradientRef = useRef(null);
     const [categoriaFiltrada, setCategoriaFiltrada] = useState('');
     const [votos, setVotos] = useState(() => {
         const votosStorage = localStorage.getItem('votos');
@@ -16,21 +14,12 @@ function Dashboard() {
     const [isHeaderOpen, setIsHeaderOpen] = useState(false);
 
     useEffect(() => {
-        const animate = animateGradient(gradientRef);
-        animate();
-    }, []);
-
-    useEffect(() => {
-        // Salva votos no localStorage
         localStorage.setItem('votos', JSON.stringify(votos));
-
-        // Ordena ferramentas baseado nos votos
         const ordenadas = [...ferramentasIniciais].sort((a, b) => {
             const votosA = votos[a.id] || 0;
             const votosB = votos[b.id] || 0;
             return votosB - votosA;
         });
-
         setFerramentasOrdenadas(ordenadas);
     }, [votos]);
 
@@ -83,15 +72,13 @@ function Dashboard() {
     };
 
     return (
-        <div ref={gradientRef} className={`min-h-screen w-full bg-gradient-to-br from-blue-50 to-purple-50 transition-all duration-300 ${
-            isHeaderOpen ? 'pl-64' : 'pl-16'
-        }`}>
-            <div className="w-full px-4 py-8">
+        <div className="min-h-screen w-full transition-all duration-300">
+            <div className="w-full px-0 py-2 lg:px-16 lg:py-4">
                 <div className="max-w-[2000px] mx-auto">
                     <div className="flex flex-col space-y-6">
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center px-2 py-2 lg:px-16 lg:py-4">
                             <div>
-                                <h1 className="text-4xl font-bold text-gray-200">Hub de IA</h1>
+                                <h1 className="text-4xl font-bold text-gray-200">IA.HUB</h1>
                                 <p className="text-gray-200 font-bold mt-2">Explore as melhores ferramentas de IA</p>
                             </div>
                             <div className="flex items-center space-x-4">
@@ -110,17 +97,25 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-2 py-2 lg:px-16 lg:py-4">
                             {ferramentasOrdenadas
                                 .filter(ferramenta => !categoriaFiltrada ||
                                     (Array.isArray(ferramenta.categoria)
                                         ? ferramenta.categoria.includes(categoriaFiltrada)
                                         : ferramenta.categoria === categoriaFiltrada))
                                 .map((ferramenta) => (
-                                    <div key={ferramenta.id}
-                                        className={`bg-white rounded-xl cursor-pointer shadow-sm hover:shadow-md hover:font-bold hover:text-xl hover:bg-gradient-to-r from-blue-100 to-purple-200 transition-all duration-300 overflow-hidden ${
-                                            votos[ferramenta.id] ? 'border-2 border-purple-400' : ''
-                                        }`}>
+                                    <div 
+                                        key={ferramenta.id}
+                                        className={`bg-white/60 rounded-xl cursor-pointer shadow-sm hover:shadow-md hover:font-bold hover:bg-white/80 transition-all duration-300 overflow-hidden ${
+                                            votos[ferramenta.id] ? 'border-4 border-blue-400' : ''
+                                        }`}
+                                        onClick={(e) => {
+                                            // Previne a navegação se o clique for nos botões
+                                            if (!e.target.closest('button') && !e.target.closest('a')) {
+                                                handleCardClick(ferramenta.id);
+                                            }
+                                        }}
+                                    >
                                         <div className="p-6 flex flex-col justify-between h-full">
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 {Array.isArray(ferramenta.categoria)
@@ -146,7 +141,7 @@ function Dashboard() {
                                             <div className="flex justify-between items-center flex-row gap-4">
                                             <a
                                                 href={ferramenta.link}
-                                                className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-700 text-white font-md rounded-lg hover:from-purple-300 hover:to-purple-500 transition-all duration-200 hover:shadow-lg hover:shadow-purple-500 hover:font-bold hover:text-lg"
+                                                className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-700 text-white font-md rounded-lg transition-all duration-200 hover:shadow-lg hover:font-bold"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
